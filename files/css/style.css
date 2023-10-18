@@ -1,0 +1,633 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ul, ol, dl {
+    list-style: none;
+}
+a, a:active, a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    height: 3000px;
+}
+
+.container {
+    width: 80%;
+    min-width: 1100px;
+    margin: auto;
+}
+
+.posa {
+    position: absolute;
+}
+
+.posr {
+    position: relative;
+}
+
+.m-3 {
+    margin: 0.5rem 1rem;
+}
+.p-1 {
+    padding: 5px 0.5rem;
+}
+
+
+hr {
+    border: none;
+    border-bottom: 1px double #ddd;
+    width: 80%;
+    margin: 0.3rem 0.5rem;
+}
+.section-heading {
+    position: relative;
+    font-size:24px;
+    width: 80vw;
+}
+
+.section-heading h2 {
+    padding: 1.5rem 0;
+    text-align: center;
+    color: var(--main-color-dark)
+}
+
+.section-heading span {
+    width: 150px;
+    height: 3px;
+    background-color: var(--main-color-med);
+    display: block;
+    margin: -10px auto 1.6rem;
+    transition: all .5s ease;
+}
+.section-heading h2:hover + span.bottom-line {
+    transform: scaleX(1.3);
+}
+
+:root {
+    font: Normal 16px / 1 Cairo;
+    --dark-color: #153157;
+    --main-color-dark: rgb(3, 71, 160);
+    --main-color-med: rgb(54, 122, 211);
+    --main-color-lite: rgb(111, 170, 247);
+    --lite-color: rgb(225, 237, 253);
+    --danger-color-dark: rgb(104, 19, 19); 
+    --danger-color: rgb(209, 88, 88); 
+    --danger-color-lite: rgba(192, 36, 36, 0.479);
+    --success-color-dark: rgb(44, 94, 48); 
+    --success-color: rgb(86, 180, 94);  
+    --success-color-lite: rgba(86, 180, 94, 0.479);
+    --info-color-dark: rgb(53, 121, 138); 
+    --info-color: rgb(85, 197, 224);  
+    --info-color-lite: rgba(85, 197, 224, 0.479); 
+    --bg-color-lite: rgba(111, 170, 247, 0.295); 
+}
+
+header {
+    height: 70px;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+
+header .header-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .brand img {
+    height: 40px;
+    margin: 20px;
+}
+
+header nav ul.main-nav {
+    display: flex;
+}
+
+header nav > ul.main-nav > li {
+    margin: 30px 3px 0;
+    display: inline-block;
+    position: relative;
+    height: 40px;
+    background-color: #fff;
+}
+
+header nav > ul.main-nav > li > span.top,
+header nav > ul.main-nav > li > span.bottom {
+    transition: all .6s ease;
+    position: absolute;
+    width: 0;
+    height: 1px;
+    display: block;
+    background-color: #153157;
+    position: absolute;
+}
+
+header nav > ul.main-nav > li > span.top {
+    left: 0;
+    top:0;
+}
+header nav > ul.main-nav > li > span.bottom {
+    right: 0;
+    bottom: 0;
+}
+
+header nav > ul.main-nav > li:hover > span.top,
+header nav > ul.main-nav > li:hover > span.bottom {
+    width: 100%;
+}
+
+header nav > ul.main-nav > li > a {
+    display: block;
+    padding: 0 0.5rem;
+    width: 100%;
+    margin: auto;
+    font: 600 1.4rem / 1.5 Cairo;
+    color: var(--main-color-dark)
+}
+
+header nav > ul.main-nav > li > a:before,
+header nav > ul.main-nav > li > a:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 0;
+    background-color:  #153157;
+    transition: all 1s ease;
+}
+
+header nav > ul.main-nav > li > a:before {
+    left: 0;
+    top: 0;
+}
+header nav > ul.main-nav > li:hover > a:after,
+header nav > ul.main-nav > li:hover > a:before {
+    height: 100%;
+}
+
+header nav > ul.main-nav > li > a:after {
+    right: 0;
+    bottom: 0;
+}
+
+header nav ul.main-nav li.has-dropdown .dropdown-menu ul.list-items li a {
+    font: 500 14px/1.5 Cairo;
+    display: block;
+    padding: 0 0.5rem;
+    height: 36px;
+    transition: all .3s ease ;
+}
+
+header nav ul.main-nav li.has-dropdown .dropdown-menu ul.list-items li:first-child {
+    margin-bottom: 1rem;
+}
+
+header nav ul.main-nav li.has-dropdown .dropdown-menu ul.list-items li:first-child a {
+    font: bold 1rem/1.5 Cairo;
+    height: 32px;
+    background-color: var(--main-color-med);
+    text-align: center;
+    color: var(--lite-color);
+
+}
+header nav ul.main-nav li.has-dropdown .dropdown-menu ul.list-items li:not(:first-child):hover {
+    background-color: var(--bg-color-lite);
+    color: var(--main-color-dark);
+    line-height: 24px;
+    border-left: 3px solid var(--main-color-dark);
+}
+
+header nav ul.main-nav li.has-dropdown .dropdown-menu ul {
+    min-width: 120px;
+    white-space: nowrap;
+    
+}
+
+header nav ul.main-nav li.has-dropdown > a {
+
+}
+
+header nav ul.main-nav li.has-dropdown .dropdown-menu ul li {
+    height: 20px;
+    color: var(--main-color-lite);
+    background-color: #fff;
+}
+
+header nav ul.main-nav li.has-dropdown .dropdown-menu {
+    height: 0;
+    width: auto;
+    left:0;
+    top: 44px;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    transition: all .3s ease-in;
+    position: absolute;
+    z-index: 44;
+}
+
+header nav ul.main-nav li.has-dropdown:hover .dropdown-menu {
+    height: 140px;
+    border: 1px solid var(--main-color-dark)
+}
+
+header nav ul.main-nav li.has-dropdown:hover > i {
+    transform: rotate(-90deg);
+}
+
+header .user .user-links {
+    margin: 30px 30px 0 0;
+    height: 40px;
+}
+
+header .user .user-links li {
+    display: inline-block;
+    position: relative;
+}
+header .user .user-links li i {
+    font-size: 20px;
+    margin-left: 1em;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    color: var(--main-color-med)
+}
+header .user .user-links li:last-of-type:after {
+    content: '99+';
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    background-color: var(--danger-color);
+    color: var(--lite-color);
+    top: 0;
+    text-align: center;
+    right: -30px;
+    border-radius: 10px;
+    font: normal 12px/20px Cairo;
+}
+
+/* Carousel Section Styles */
+
+section.carousel img {
+    box-shadow: 0 0 10px 1px #dedede
+}
+
+/* Category Section Styles */
+.cards {
+    display: flex;
+}
+
+.cards .card {
+    height: 360px; 
+    min-width: 260px;
+    width: 25%;
+    background-color: aliceblue;
+    box-shadow: 0 0 10px 1px #dedede
+}
+
+section.category .cards {
+    gap: 1rem; 
+}
+
+section.category .cards p {
+    color: var(--main-color-lite)
+}
+
+section.category .cards h2 {
+    color: var(--main-color-dark)
+}
+
+section.category  .cards .card i {
+    height: 40px; 
+    width: 40px;
+    right: 0;
+    font-size: 36px;
+    bottom: 25px;
+    box-shadow: -1px 0 1px 1px #dedede;
+    background-color: var(--main-color-dark);
+    text-align: center;
+    color: var(--lite-color);
+    opacity: 0;
+    transition: opacity 0.2s ease, bottom 0.5s 0.2s ease;
+}
+
+section.category  .cards .card:hover i {
+    opacity: 1;
+    bottom: 30px;
+}
+
+section.category .news {
+    padding-top: 2rem;
+}
+
+section.category .news .press {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 330px;
+    gap: 1rem;
+}
+
+section.category .news .press .press-item {
+    
+    font: 800 1.8rem / 1.5 Cairo;
+}
+section.category .news .press .press-item:first-child  {
+    background-color: white;
+    box-shadow: 0 0 10px 1px #dedede
+}
+section.category .news .press .press-item h3,
+section.category .news .press .press-item h3 i {
+    color: var(--main-color-dark);
+    font-size: 3rem;
+}
+
+section.category .news .press .press-item h3 span {
+    font: 400 1.5rem / 1.5 Cairo;
+    display: block;
+}
+section.category .news .press .press-item p {
+    font: normal 1.2rem/1.5 "Cairo", sans-serif;
+}
+
+section.category .news .press .press-item:last-child {
+    display: flex;
+    gap: 1rem;
+}
+section.category .news .press .press-item .item {
+    background-size: cover;
+    flex: 1;
+    height: 330px;
+    transition: all .3s ease;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 0 10px 1px #dedede
+}
+section.category .news .press .press-item .item h2 {
+    font: 700 2.4rem / 1.5 Cairo;
+}
+section.category .news .press .press-item .item h4 {
+    font: normal 1.4rem / 1.5 Cairo;
+    padding: 3rem 0 1rem
+}
+section.category .news .press .press-item .item button {
+    width: 60%;
+    display: block;
+    margin: auto;
+    font: 700 1.1rem / 1.5 Cairo;
+    padding: 0.5rem ;
+    margin-top: 2rem;
+    color: var(--main-color-med)
+}
+section.category .news .press .press-item .item:hover {
+    transform: scale(1.1);
+}
+
+/* slider Section animation and styles */
+section.category .news .press .press-item .parent {
+    display: block;
+    height: 330px;
+    width: 480px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all .3s ease;
+}
+  
+section.category .news .press .press-item .parent > .slider {
+    width: 300%;height: 100%;
+    position: absolute;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    animation: slide-left 18s infinite;
+    
+    animation-fill-mode: both;
+    transition: all 1s ease-in-out;
+}
+section.category .news .press .press-item .slide {
+    height: 100%;
+    text-align: justify;
+}
+  
+  
+@keyframes slide-left {
+    0% {
+        left: 0;
+    }
+    30% {left: 0}
+    33% {left: -100%;}
+    63% {left: -100%;}
+    66% {left: -200%}
+    100% {left: -200%}
+    
+}
+section.category .news .press .press-item .parent .bullets {
+    position: absolute;
+    width: 170px;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    gap: 10px;
+}
+section.category .news .press .press-item .parent .bullets span.bullet {
+    border: 1px solid var(--main-color-lite);
+    height: 10px;
+    background-color: aliceblue;
+}
+
+section.category .news .press .press-item .parent .bullets span.bullet:nth-child(1) {
+    animation: slide-bg1 18s infinite;
+}
+section.category .news .press .press-item .parent .bullets span.bullet:nth-child(2) {
+    animation: slide-bg2 18s infinite;
+}
+section.category .news .press .press-item .parent .bullets span.bullet:nth-child(3) {
+    animation: slide-bg3 18s infinite;
+}
+@keyframes slide-bg1 {
+    0% { background-color: var(--main-color-med);}
+    30% {background-color: var(--main-color-med)}
+    33% {background-color: aliceblue}
+    100% { background-color: aliceblue}
+}
+@keyframes slide-bg2 {
+    0% { background-color: aliceblue;}
+    30% {background-color: aliceblue}
+    33% {background-color: var(--main-color-med)}
+    63% {background-color: var(--main-color-med)}
+    66% {background-color: aliceblue}
+    100% { background-color: aliceblue}
+}
+@keyframes slide-bg3 {
+    0% { background-color: aliceblue;}
+    63% {background-color: aliceblue}
+    66% {background-color:var(--main-color-med)}
+    100% { background-color: var(--main-color-med)}
+}
+
+/* Services section styles start */
+section.services {
+    height: 200px;
+    padding: 2rem 0;
+}
+
+section.services .parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    height: 200px;
+    overflow: hidden;
+    padding-bottom: 3rem;
+    border-bottom: 2px solid #888
+}
+
+section.services .parent .service {
+    position: relative;
+    height: 100%;
+    text-align: center;
+    
+}
+
+section.services .parent .service .icons {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: block;
+    transition: all .3s ease
+}
+
+section.services .parent .service:hover .icons {
+    position: absolute;
+    top: -65px;
+}
+
+section.services .parent .service:after {
+    content: '';
+    width: 1px;
+    height: 150px;
+    display: block;
+    background-color: #999;
+    position: absolute;
+    top: 0;
+    left: -8px
+}
+
+section.services .parent .service i {
+    display: block;
+    font-size: 3em;
+    color: var(--main-color-dark);
+    padding: 0.6rem;
+}
+
+section.services .parent .service i.grey {
+    color: #ccc;
+}
+
+section.services .parent .service .title {
+    position: absolute;
+    bottom: 0;
+    height: 50%;
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+section.services .parent .service .title h3 {
+    font: normal 1.4rem / 1.2 Cairo;
+    color: var(--main-color-dark);
+    text-align: center;
+}
+section.services .parent .service .title p {
+    font: normal 1.1rem / 1.2 Cairo;
+    color: #888;
+    text-align: center;
+}
+
+/* Products Section Styles Starts  */
+section.products {
+    background-size: cover; 
+}
+
+section.products ul.categories {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0 0 2rem;
+    font: 600 1.3rem / 1.5 Cairo;
+}
+section.products ul.categories li { 
+    padding: 0 0.6rem;
+    color: var(--main-color-med);
+    
+}
+section.products ul.categories li + li { 
+    border-left: 2px solid ;
+
+}
+
+section.products .section-heading {
+    padding-top: 2rem;
+}
+
+section.products .cards {
+    height: 1000px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+section.products .cards .card {
+    height: 450px;
+    width: 100%;
+    perspective: 800px;
+}
+
+section.products .cards .card .studio {
+    position: relative;
+    height: 350px;
+    transform-style: preserve-3d;
+    transition: all 0.6s ease-in-out;
+}
+section.products .cards .card .studio img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+}
+
+section.products .cards .card .studio img.front {
+    backface-visibility: hidden;
+    transform: rotateY(-180deg);
+}
+
+section.products .cards .card:hover .studio {
+    transform: rotateY(180deg);
+}
+section.products .cards .card .info {
+    position: relative;
+}
+
+section.products .cards .card .rating {
+    padding: 0.5rem 1rem;
+    color: orangered
+}
+
+section.products .cards .card h2 {
+    padding: 0.5rem 1rem;
+    color: var(--main-color-dark)
+}
+
+section.products .cards .card .price {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem
+}
+
+
